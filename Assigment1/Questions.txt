@@ -1,0 +1,107 @@
+--Part A
+ select distinct city,state,zip from customer;
+
+select empname ,department,phone,email
+    from employee
+    where phone like'3-%';
+
+select * from resourcetbl
+    where rate between 10 AND 20
+    order by rate;
+
+select eventno, dateauth,status
+    from EventRequest
+    where status =('Approved' or 'Denied')
+    and dateauth like '2013-07%';
+
+select locno as location_number , locname as location_name
+	from location
+	where facno= (select facno from Facility
+			where facname like'Basketball%');
+
+select planNo,count(LINENO) as event_plan_line,sum(numberFLD) as  number_of_resources
+	from eventplanline
+	group by planNo;
+
+--part C
+
+insert into facility(facno,facname)
+    values
+    ('F104','Swimming Pool');
+select * from facility;
+
+ insert into location(locno,facno,locname)
+    values
+    ('L107','F104','Door');
+ select * from location;
+
+insert into location(locno,facno,locname)
+    values
+    ('L108','F104','Locker Room');
+select * from location;
+
+update location
+    set
+    locname = 'Gate'
+    where locname ='Door';
+select * from location;
+
+delete from location
+    where locname = 'locker room'
+    and locno = 'L108';
+select * from location;
+
+--part B
+
+select a.eventno,dateheld,count(planno) 
+	from eventrequest a,eventplan b 
+	where workdate between '2013-12-01'  and '2013-12-31'
+	and a.eventno=b.eventno 
+	group by planno 
+		having count(planno)>1;
+
+
+select planno,eventno,workdate,activity
+    from eventplan
+    where workdate like'2013-12%'
+    and
+    eventno in(select eventno from EventRequest
+		where facno = (Select facno from facility
+				where facname ='Basketball arena')
+				);
+
+
+select a.eventno,dateheld , status,estcost
+	from eventrequest a, eventPlan b 
+	where facno = (select facno
+		        from facility
+				where facname ='Basketball arena')
+        and empno = (select empno from employee where empname = 'Mary Manager')
+	and a.eventno = b.eventno
+ 	and dateheld between '2013-10-01'  and '2013-12-31';
+
+
+
+
+
+select a.planno , a.lineno , b.resname , a.numberFLD , c.locname , a.TimeStart,a.TimeEnd
+	from eventPlanLine as a,resourceTBL as b , location as c
+	where c.facno = (select facno from facility
+				where facname = 'basketball arena')
+	and a.planno in(select planno from EventPlan
+			where activity = 'Operation'
+			and workdate between '2013-10-01'  and '2013-12-31')
+	and a.resno = b.resno
+	and c.locno = a.locno;
+
+	
+
+select a.planno , a.lineno , b.resname , a.numberFLD,c.locname , a.TimeStart, a.TimeEnd
+    from eventPlanLine as a,resourceTBL as b , location as c
+    where c.facno =(select facno from facility
+    where facname ='basketball arena')
+    and a.planno in(select planno from EventPlan
+    where activity = 'Operation'
+    and workdate between '2013-10-01' and '2013-12-31')
+    and a.resno = b.resno
+    and c.locno = a.locno;
