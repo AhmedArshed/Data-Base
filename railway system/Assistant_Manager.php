@@ -15,10 +15,11 @@ include "connect.php";
  <head>
  	<title>Employee start</title>
  	<link href="css/bootstrap.min.css" rel="stylesheet">
+
  	<style>
 .bg {
   background-image: url("new.jpg");
-  height: 100vh; 
+  height: 100%; 
   background-position: center;
   background-repeat: repeat;
   background-size: cover;
@@ -59,81 +60,185 @@ body, html {
 			  background-color: #333;
 		}
 
-		li {
+		/*li {
   			float: left;
-		}
+		}*/
 
-		li a, .dropbtn {
-  			display: inline-block;
-  			color: white;
-  			text-align: center;
-  			padding: 14px 16px;
-  			text-decoration: none;
-		}
-.set3{
-  margin-left: 150px;
+		
+.topnav {
+  overflow: hidden;
+  background-color: #333;
 }
 
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.set2{
+  margin-top: 30px;
+}
+.set4{
+  margin-bottom: 100px;
+}
+
+* {box-sizing: border-box}
+body {font-family: Verdana, sans-serif; margin:0}
+.mySlides {display: none}
+img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+.clgs{
+  background-color: black;
+}
+.btnset{
+     float: right;
+  background-color: #ffae00;
+  color: #000000;
+}
     </style>
  </head>
  <body>
  	<?php 
-	 	echo "<ul class='nave page-header mb-5' align='center'>"."<li>"."<a>"."<h1>". "Welcome    " . $_SESSION["name"]."</h1>"."</a>"."</li>";
-	 	echo "<li style='float:right'>"."<a class='active' href='logout.php'>"."<h5>"."Log Out"."</h5>"."</a>"."</li>"."</ul>";
-	 ?>
-	 <div class="bg"></div>
-	 <div class="bg-text">
-	<div class="form-group row col-sm-12"> </div>
-	<div class="form-group row col-sm-12"> </div>
-
-	<div class="form-group row">
- 		<div class="col-sm-10" class="page-header mb-5" align="center">
- 			<a href="emp_profile.php" class="clgr"><h3  class="form-control col-sm-3 btn btn-success set3" >Profile</h3></a>
-		</div>
-	</div>
-
-	<div class="form-group row col-sm-12"> </div>
-
-	<div class="form-group row">
- 		<div class="col-sm-10" class="page-header mb-5" align="center">
- 			<a href="update_station.php" class="clgr"><h3  class="form-control col-sm-3 btn btn-success set3" >Station</h3></a>
-		</div>
-	</div>
- 	
-	<div class="form-group row col-sm-12"> </div>
-
-	<div class="form-group row">
- 		<div class="col-sm-10" class="page-header mb-5" align="center">
- 			<a href="update_train.php" class="clgr"><h3 class=" form-control col-sm-3 btn btn-success set3">Train</h3></a>
- 		</div>
-	</div>
-
-	<div class="form-group row col-sm-12"> </div>
-	
-	<div class="form-group row">
- 		<div class="col-sm-10" class="page-header mb-5" align="center">
- 			<a href="train_in_station.php" class="clgr"><h3 class=" form-control col-sm-3 btn btn-success set3">Train in Station</h3></a>
- 		</div>
-	</div>
-
-	<div class="form-group row col-sm-12"> </div>
-
-	<div class="form-group row">
- 		<div class="col-sm-10" class="page-header mb-5" align="center">
- 			<a href="update_time.php" class="clgr"><h3 class=" form-control col-sm-3 btn btn-success set3">Time</h3></a>
- 		</div>
-	</div>
-
-	<div class="form-group row col-sm-12"> </div>
-	
-	<div class="form-group row">
- 		<div class="col-sm-10" class="page-header mb-5" align="center">
- 			<a href="update_train_time.php" class="clgr"><h3 class=" form-control col-sm-3 btn btn-success set3">Train Time</h3></a>
- 		</div>
-	</div>
-
+	 	echo "<ul class='nave page-header' align='center'>"."<li>"."<a>"."<h1>". "Welcome " . $_SESSION["name"]."</h1>"."</a>"."</li>";
+      echo "<li class='nave'>"."<div class='topnav set2'>"."<a href='emp_profile.php' class='clgr active'>"."Profile"."</a>";
+	   echo "<a href='update_station.php' class='clgr'>"."Station"."</a>";
+     echo "<a href='update_train.php' class='clgr'>"."Train"."</a>";
+     echo "<a href='train_in_station.php' class='clgr'>"."Train in Station"."</a>";
+     echo "<a href='update_time.php' class='clgr'>"."Time"."</a>";
+     echo "<a href='update_train_time.php' class='clgr'>"."Train Time"."</a>";
+	 	 echo "<a href='logout.php' style='float:right' class='btnset'>"."Log Out"."</a>"."</li>"."</ul>";
+     echo "</div>";
+   ?>
+   <div class="slideshow set4">
+<div class="mySlides fa">
+  <!-- <div class="numbertext"></div> -->
+  <img src="r1.jpg" style="width:100%" height="550">
+</div>
+<div class="mySlides fa">
+  <!-- <div class="numbertext"></div> -->
+  <img src="r2.jpg" style="width:100%" height="550">
 </div>
 
+<div class="mySlides fa">
+  <!-- <div class="numbertext"></div> -->
+  <img src="r3.jpg" style="width:100%" height="550">
+</div>
+
+<div class="mySlides fa">
+  <!-- <div class="numbertext">4 / 4</div> -->
+  <img src="r4.jpeg" style="width:100%" height="550">
+</div>
+<br>
+<div style="text-align:center">
+  <span class="dot"></span>
+  <span class="dot"></span>
+  <span class="dot"></span>
+  <span class="dot"></span>
+</div>
+</div>
+<!-- <br> -->
+
+
+<script>
+var slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}    
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+  setTimeout(showSlides, 2000); // Change image every 2 seconds
+}
+</script>
  	<div class="form-group row">
             <div class="col-sm-4"></div>
                 <?php
@@ -144,6 +249,6 @@ body, html {
                     }
                 ?>
     </div>
-        <div class="col-sm-4"></div>
+    <div class="col-sm-4"></div>
  </body>
  </html>
