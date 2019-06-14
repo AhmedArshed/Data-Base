@@ -54,6 +54,46 @@ body::modal-content {
   border: 1px solid #888;
   width: 50%; /* Could be more or less, depending on screen size */
 }
+.nave{
+      background-color: #000000;
+      color: #FFFFFF;
+    }
+    .topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.clgr{
+          color: #000000;
+        }
+.btnset{
+     float: right;
+  background-color: #ffae00;
+  color: #000000;
+}
+ul {
+    list-style-type: none;
+}
+
 	</style>
 </head>
 <body>
@@ -62,18 +102,25 @@ body::modal-content {
 		<div class="page-header mb-5" align="center">
 			<br><br><br><br>
             <h1 class="set2">Sign Up Employee</h1>
+    <br>
+        <ul class='nave page-header' align='center'>
+      <li class='nave'>
+        <div class='topnav set2'>
+          <a href='emp_profile.php' class='clgr active'>Profile</a>
+          <a href='employee_register.php' class='clgr'>Add new Employees</a>
+          <a href='update_employee.php' class='clgr'>Update Employee</a>
+          <a href='search_employee.php' class='clgr'>Search Employee</a>
+          <a href='logout.php' style='float:right' class='btnset'>Log Out</a>
         </div>
-			<div class="form-group row">
-			<a class="btn btn-success col-sm-1" href="manager.php"><-Back</a>
-			<div class="col-sm-11"></div>
-		</div>
+      </li>
+    </ul>
+    <br>
 		<div class="form-group row">
 					<div class="col-sm-1"></div>
-				<input type="text" name="txtCnic" id="txtCnic" onblur="genEmail()" class="form-control col-sm-4" placeholder = "CNIC" required>
-					<div class="col-sm-1"></div>
 				<input type="text" name="txtName" id="txtName" onblur="checkName()" class="form-control col-sm-4" placeholder = "Full Name" required>
-                <span id="nMsg"></span>
-			<div class="col-sm-2"></div>
+					<div class="col-sm-1"></div>
+				<input type="text" name="txtCnic" id="txtCnic" onblur="genEmail()" class="form-control col-sm-4" placeholder = "CNIC" required>
+                <span id="nMsg" class= "col-sm-2 "></span>
 		</div>
 
 		<div class="form-group row">
@@ -81,8 +128,7 @@ body::modal-content {
 				<input type="password" name="txtPass" id="txtPass" class="form-control col-sm-4" placeholder = "New Password" required>
 					<div class="col-sm-1"></div>
 					<input type="password" name="ctxtPass" id="ctxtPass" onblur="checkPassword()" class="form-control col-sm-4" placeholder = "Confirm Password" required>
-				<span id="pMsg" class= "col-sm-4 "></span>
-			<div class="col-sm-2"></div>
+				<span id="pMsg" class= "col-sm-2 "></span>
 		</div>
 
 		<div class="form-group row">
@@ -172,7 +218,7 @@ body::modal-content {
 			}
 		}
         if(flag == true){
-            nMsg.innerHTML = "Invalid Name...";
+            nMsg.innerHTML = "Invalid Name";
             nameBox.value = "";
             nameBox.focus();
         }
@@ -190,7 +236,7 @@ body::modal-content {
 		var cpass = cPasswordBox.value;
         var pMsg = document.getElementById("pMsg");
         if(pass != cpass){
-            pMsg.innerHTML = "Password can not match...";
+            pMsg.innerHTML = "Invalid Password";
 			PasswordBox.value = "";
 			cPasswordBox.value = "";
             PasswordBox.focus();
@@ -220,7 +266,7 @@ body::modal-content {
 		for(i = 0; i <= count; i++){
 			email += splitName[i];
 		}
-        email += num+"@gmail.com";
+        email += num+"@railway.com";
         emailBox.value = email;
     }
 </script>
