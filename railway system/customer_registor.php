@@ -15,7 +15,7 @@
 }
 .bg-text {
   background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+  background-color: rgba(0,0,0, 1); /* Black w/opacity/see-through */
   color: white;
   font-weight: bold;
   border: 3px solid #f1f1f1;
@@ -47,22 +47,66 @@ body, html {
 input[type=text]:focus {
   border: 3px solid #555;
 }
+.nave{
+      background-color: #000000;
+      color: #FFFFFF;
+    }
+    .topnav {
+  overflow: hidden;
+  background-color: #333;
+}
 
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.clgr{
+          color: #000000;
+        }
+.btnset{
+     float: right;
+  background-color: #ffae00;
+  color: #000000;
+}
+ul {
+    list-style-type: none;
+}
   </style>
 </head>
 <body>
   <div class="bg"></div>
 	<form action="customer_registor_try.php" method="post" class="container-fluid bg-text">
-		<div class="page-header mb-5" align="center">
+		<div class="page-header mb-3" align="center">
             <h1 style="color: #FFFFFF">Customer's Registration</h1>
       </div>
 
-    <div class="form-group row">
-			  <a class="btn btn-success col-sm-1" href="worker.php"><-Back</a>
-			  <div class="col-sm-11"></div>
-		</div>
-		
-    <div class="form-group row" align="center">
+    <ul class='nave page-header' align='center'>
+      <li class='nave'>
+        <div class='topnav set2'>
+          <a href='emp_profile.php' class='clgr active'>Profile</a>
+          <a href='show_schedule.php' class='clgr'>Show Schedule</a>
+          <a href='customer_registor.php' class='clgr'>Booking Ticket</a>
+          <a href='show_ticket.php' class='clgr'>Show Tickets</a>
+          <a href='logout.php' style='float:right' class='btnset'>Log Out</a>
+        </div>
+      </li>
+    </ul>
+    <div class="form-group row mb-3" align="center">
             <div class="col-sm-4"></div>
             <input type="text" name="cust_id" class="form-control col-sm-4" placeholder="Customer CNIC" required>
             <div class="col-sm-4"></div>
