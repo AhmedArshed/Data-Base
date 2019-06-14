@@ -29,7 +29,7 @@ include "connect.php";
 
         .bg {
   background-image: url("new.jpg"); 
-  height: 100vh; 
+  height: 160vh; 
   background-position: center;
   background-repeat: repeat;
   background-size: cover;
@@ -51,7 +51,7 @@ body, html {
   font-weight: bold;
   border: 3px solid #f1f1f1;
   position: absolute;
-  top: 50%;
+  top: 43%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 2;
@@ -60,6 +60,45 @@ body, html {
   padding: 40px;
   text-align: center;
 }
+.nave{
+      background-color: #000000;
+      color: #FFFFFF;
+    }
+    .topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.clgr{
+          color: #000000;
+        }
+.btnset{
+     float: right;
+  background-color: #ffae00;
+  color: #000000;
+}
+ul {
+    list-style-type: none;
+}
     </style>
  </head>
  <body>
@@ -67,11 +106,19 @@ body, html {
  	<form action="remove_employee_try.php" method="post" class="container bg-text">
         <div class="page-header mb-5" align="center">
  	<h3 class="set">Employee's Information</h3>
-
-     <div class="form-group row">
-			<a class="btn btn-success col-sm-1" href="manager.php"><-Back</a>
-			<div class="col-sm-11"></div>
-	</div>
+<br>
+     <ul class='nave page-header' align='center'>
+      <li class='nave'>
+        <div class='topnav set2'>
+          <a href='emp_profile.php' class='clgr active'>Profile</a>
+          <a href='employee_register.php' class='clgr'>Add new Employees</a>
+          <a href='update_employee.php' class='clgr'>Update Employee</a>
+          <a href='search_employee.php' class='clgr'>Search Employee</a>
+          <a href='logout.php' style='float:right' class='btnset'>Log Out</a>
+        </div>
+      </li>
+    </ul>
+    <br>
 
      <?php
             
@@ -136,7 +183,3 @@ body, html {
 
  </body>
  </html>
-
-
-
-
