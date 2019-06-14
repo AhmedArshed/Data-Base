@@ -29,7 +29,7 @@ include "connect.php";
 
         .bg {
   background-image: url("new.jpg"); 
-  height: 150vh; 
+  height: 200vh; 
   background-position: center;
   background-repeat: repeat;
   background-size: cover;
@@ -51,14 +51,53 @@ body, html {
   font-weight: bold;
   border: 3px solid #f1f1f1;
   position: absolute;
-  top: 40%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 2;
-  width: 150%;
-  height: 150%
+  width: 100%;
+  height: 100%;
   padding: 40px;
   text-align: center;
+}
+  .nave{
+      background-color: #000000;
+      color: #FFFFFF;
+    }
+    .topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.clgr{
+          color: #000000;
+        }
+.btnset{
+     float: right;
+  background-color: #ffae00;
+  color: #000000;
+}
+ul {
+    list-style-type: none;
 }
     </style>
  </head>
@@ -68,10 +107,19 @@ body, html {
         <div class="page-header mb-5" align="center">
  	<h3 class="set">Update Train Time</h3>
 
-     <div class="form-group row">
-			<a class="btn btn-success col-sm-1" href="Assistant_Manager.php"><-Back</a>
-			<div class="col-sm-11"></div>
-	</div>
+     <ul class='nave page-header' align='center'>
+      <li class='nave'>
+        <div class='topnav set2'>
+          <a href='emp_profile.php' class='clgr active'>Profile</a>
+          <a href='update_station.php' class='clgr'>Station</a>
+          <a href='update_train.php' class='clgr'>Train</a>
+          <a href='train_in_station.php' class='clgr'>Train in Station</a>
+          <a href='update_time.php' class='clgr'>Time</a>
+          <a href='update_train_time.php' class='clgr'>Train Time</a>
+          <a href='logout.php' style='float:right' class='btnset'>Log Out</a>
+        </div>
+      </li>
+    </ul>
 
      <?php
             
@@ -167,7 +215,3 @@ body, html {
 
  </body>
  </html>
-
-
-
-
